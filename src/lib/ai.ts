@@ -2,7 +2,7 @@
 // Fixed: No systemInstruction - using first message instead
 
 const GEMINI_API_KEY = process.env.GEMINI_API_KEY || "";
-const GEMINI_API_URL = "https://generativelanguage.googleapis.com/v1/models/gemini-3-flash-preview:generateContent";
+const GEMINI_API_URL = "https://generativelanguage.googleapis.com/v1/models/gemini-1.5-pro:generateContent";
 
 interface GeminiPart {
   text: string;
