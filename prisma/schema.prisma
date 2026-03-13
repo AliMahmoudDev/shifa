@@ -29,7 +29,6 @@ model User {
   updatedAt     DateTime @updatedAt
   
   diagnoses      Diagnosis[]
-  skinAnalyses   SkinAnalysis[]
   medicalRecords MedicalRecord[]
   medications    Medication[]
   chatSessions   ChatSession[]
@@ -53,19 +52,6 @@ model Diagnosis {
   
   user            User     @relation(fields: [userId], references: [id], onDelete: Cascade)
   sharedResults   SharedResult[]
-}
-
-// تحليلات الجلدية
-model SkinAnalysis {
-  id              String   @id @default(cuid())
-  userId          String
-  imageUrl        String
-  analysis        String   // JSON string - نتائج التحليل
-  conditions      String?  // JSON string - الحالات المحتملة
-  severity        String?  // درجة الخطورة
-  createdAt       DateTime @default(now())
-  
-  user            User     @relation(fields: [userId], references: [id], onDelete: Cascade)
 }
 
 // السجل الطبي
@@ -172,7 +158,7 @@ model PointsHistory {
   id              String   @id @default(cuid())
   userId          String
   points          Int
-  reason          String   // diagnosis | skin_analysis | chat | review | share
+  reason          String   // diagnosis | chat | review | share
   description     String?
   createdAt       DateTime @default(now())
   
