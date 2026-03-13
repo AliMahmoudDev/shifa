@@ -6,7 +6,6 @@ import { Heart, Mail, Phone, MapPin } from "lucide-react";
 const footerLinks = {
   الرئيسية: [
     { label: "تحليل الأعراض", href: "/symptoms" },
-    { label: "تحليل الجلدية", href: "/skin-analysis" },
     { label: "المساعد الذكي", href: "/chat" },
     { label: "البحث عن أطباء", href: "/doctors" },
   ],

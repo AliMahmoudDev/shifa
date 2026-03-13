@@ -13,7 +13,6 @@ import {
   LogOut, 
   MessageCircle,
   Stethoscope,
-  Image,
   MapPin,
   Loader2,
   Bell,
@@ -33,7 +32,6 @@ import { Globe } from "lucide-react";
 
 const navItems = [
   { href: "/symptoms", label: "تحليل الأعراض", icon: Stethoscope },
-  { href: "/skin-analysis", label: "تحليل الجلدية", icon: Image },
   { href: "/chat", label: "المساعد الذكي", icon: MessageCircle },
   { href: "/doctors", label: "الأطباء", icon: MapPin },
 ];

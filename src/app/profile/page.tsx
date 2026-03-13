@@ -14,7 +14,6 @@ import {
   Camera,
   Save,
   History,
-  Star,
   Trophy,
   Loader2,
   Shield,
@@ -44,7 +43,7 @@ export default function ProfilePage() {
   const [profile, setProfile] = useState<UserProfile | null>(null);
   const [loading, setLoading] = useState(true);
   const [saving, setSaving] = useState(false);
-  const [stats, setStats] = useState({ diagnoses: 0, skinAnalyses: 0, reviews: 0 });
+  const [stats, setStats] = useState({ diagnoses: 0, reviews: 0 });
   const fileInputRef = useRef<HTMLInputElement>(null);
   const router = useRouter();
 
@@ -259,17 +258,12 @@ export default function ProfilePage() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.1 }}
-            className="grid grid-cols-3 gap-4 mb-6"
+            className="grid grid-cols-2 gap-4 mb-6"
           >
             <Card className="p-4 text-center">
               <History className="w-6 h-6 mx-auto mb-2 text-blue-500" />
               <div className="text-2xl font-bold">{stats.diagnoses}</div>
               <div className="text-sm text-muted-foreground">تشخيص</div>
-            </Card>
-            <Card className="p-4 text-center">
-              <Star className="w-6 h-6 mx-auto mb-2 text-yellow-500" />
-              <div className="text-2xl font-bold">{stats.skinAnalyses}</div>
-              <div className="text-sm text-muted-foreground">تحليل جلدية</div>
             </Card>
             <Card className="p-4 text-center">
               <Award className="w-6 h-6 mx-auto mb-2 text-green-500" />

@@ -9,19 +9,18 @@ export async function GET(request: NextRequest) {
     const token = request.cookies.get("auth-token")?.value;
 
     if (!token) {
-      return NextResponse.json({ diagnoses: 0, skinAnalyses: 0, reviews: 0 });
+      return NextResponse.json({ diagnoses: 0, reviews: 0 });
     }
 
     const decoded = verify(token, JWT_SECRET) as { id: string };
 
-    const [diagnoses, skinAnalyses, reviews] = await Promise.all([
+    const [diagnoses, reviews] = await Promise.all([
       db.diagnosis.count({ where: { userId: decoded.id } }),
-      db.skinAnalysis.count({ where: { userId: decoded.id } }),
       db.review.count({ where: { userId: decoded.id } }),
     ]);
 
-    return NextResponse.json({ diagnoses, skinAnalyses, reviews });
+    return NextResponse.json({ diagnoses, reviews });
   } catch {
-    return NextResponse.json({ diagnoses: 0, skinAnalyses: 0, reviews: 0 });
+    return NextResponse.json({ diagnoses: 0, reviews: 0 });
   }
 }
